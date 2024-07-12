@@ -57,14 +57,14 @@ router.post("/login", async (req, res) => {
       });
     }
 
-    // const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-    //   expiresIn: "1d",
-    // });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
 
     res.send({
       success: true,
       message: "You've successfully logged in!",
-      // token: token,
+      token: token,
     });
   } catch (error) {
     console.error(error);
